@@ -1,0 +1,15 @@
+* {
+    background-color: aqua;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+}
+
+th, td {
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+}

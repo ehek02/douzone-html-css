@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+    background-color: #cccccc;
+}
+
+legend {
+    background-color: #000;
+    color: #fff;
+    padding: 3px 6px;
+}
+
+.output {
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input {
+    margin: .4rem;
+}
+
+
+#send_btn {
+    border: 1px solid black;
+    background-color: black;
+    color: skyblue;
+    padding: 5px;
+}
+
+li {
+    display: list-item;
+
+    padding: 5px;
+
+    color: black;
+
+    border: 1px solid chocolate;
+}
