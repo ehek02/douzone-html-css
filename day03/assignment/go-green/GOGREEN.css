@@ -1,0 +1,71 @@
+/*nav {*/
+/*    display: grid;*/
+/*    grid-template-columns: auto auto;*/
+/*    justify-content: space-between;*/
+/*}*/
+.header-img {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-logo {
+    margin: 10px 0 0 20px;
+    background-image: url("./image/logo.jpg");
+    height: 100px;
+    width: 100px;
+    background-size: 100% 100%;        /*그림 깨짐 방지*/
+}
+
+.header-content {
+    margin-right: 100px;
+    background-image: url("./image/mainlogo.jpg");
+    height: 100px;
+    width: 80%;
+    background-size: 100% 100%;        /*그림 깨짐 방지*/
+}
+
+.menu {
+    background-color: green;
+    height: 30px;
+    text-align: center;
+}
+
+.menu ul {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 30px;             /* */
+    list-style-type: none;
+    margin: 15px 30px 0 0;
+}
+
+.menu ul a {
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+}
+
+main {
+    display: flex;
+    width: 1280px;
+    margin: auto auto;
+}
+
+aside .right-aside {
+    width: 10%;
+}
+
+section {
+    width: 80%;
+}
+
+.content-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /*1줄에 2진 2개만 들어갈거임!!(속성갯수)*/
+    grid-gap: 10px;
+    margin-top: 20px;
+}
+
+.content-info {
+    text-align: center;
+    margin-right: 30px;
+}

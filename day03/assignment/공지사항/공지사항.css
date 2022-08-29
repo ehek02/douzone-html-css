@@ -1,0 +1,49 @@
+table {
+    width: 100%;
+}
+
+thead {
+    background-color: orange;
+    text-align: center;
+}
+
+tbody {
+    background-color: yellow;
+}
+
+tfoot {
+    background-color: orange;
+    text-align: center;
+}
+
+.title {
+    width: 300px;
+}
+
+.go_btn {
+    width: 100%;
+}
+
+.tbody__no {
+    width: 150px;
+}
+
+.tbody__btn {
+    width: 100px;
+}
+
+.tbody__writer {
+    width: 150px;
+}
+
+.tbody__content {
+    width: 500px;
+}
+
+.tbody__create-dt {
+    width: 150px;
+}
+
+.tbody__view-count {
+    width: 150px;
+}

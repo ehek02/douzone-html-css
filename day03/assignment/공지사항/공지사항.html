@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="공지사항.css"/>
+</head>
+<body>
+    <h1>공지사항 문제</h1><hr>
+    <fieldset>
+        <legend>공지사항 작성하기</legend>
+        <label for="title">제목</label>
+        <input type="text" name="title" id="title" placeholder="제목을 입력하시오."><br/><br>
+
+        <label for="content" style="text-align: center;">내용</label>
+        <textarea name="content" id="content" placeholder="내용을 입력하시오."></textarea><br/><br>
+
+        <label for="file">첨부파일</label>
+        <input type="file" id=file name="file"/><br><br>
+
+        <input type="button" value="작성하기"/>
+    </fieldset>
+    <hr>
+
+    <section>
+        <div class="notice__box">
+            <table border="1">
+                <thead>
+                <tr>
+                    <th class="thead__no">번호</th>
+                    <th class="thead__title" colspan="2">제목</th>
+                    <th class="thead__writer">작성자</th>
+                    <th class="thead__create-dt">작성일</th>
+                    <th class="thead__view-count">조회수</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td class="tbody__no">9</td>
+                    <td class="tbody__content">공지사항 제목9</td>
+                    <td class="tbody__btn"><input class="go_btn" type="button" value="바로가기"></td>
+                    <td class="tbody__writer">user01</td>
+                    <td class="tbody__create-dt">2021-03-29</td>
+                    <td class="tbody__view-count">34</td>
+                </tr>
+                <tr>
+                    <td class="tbody__no">9</td>
+                    <td class="tbody__content">공지사항 제목9</td>
+                    <td class="tbody__btn"><input class="go_btn" type="button" value="바로가기"></td>
+                    <td class="tbody__writer">user01</td>
+                    <td class="tbody__create-dt">2021-03-29</td>
+                    <td class="tbody__view-count">34</td>
+                </tr>
+                <tr>
+                    <td class="tbody__no">9</td>
+                    <td class="tbody__content">공지사항 제목9</td>
+                    <td class="tbody__btn"><input class="go_btn" type="button" value="바로가기"></td>
+                    <td class="tbody__writer">user01</td>
+                    <td class="tbody__create-dt">2021-03-29</td>
+                    <td class="tbody__view-count">34</td>
+                </tr>
+                <tr>
+                    <td class="tbody__no">9</td>
+                    <td class="tbody__content">공지사항 제목9</td>
+                    <td class="tbody__btn"><input class="go_btn" type="button" value="바로가기"></td>
+                    <td class="tbody__writer">user01</td>
+                    <td class="tbody__create-dt">2021-03-29</td>
+                    <td class="tbody__view-count">34</td>
+                </tr>
+                <tr>
+                    <td class="tbody__no">9</td>
+                    <td class="tbody__content">공지사항 제목9</td>
+                    <td class="tbody__btn"><input class="go_btn" type="button" value="바로가기"></td>
+                    <td class="tbody__writer">user01</td>
+                    <td class="tbody__create-dt">2021-03-29</td>
+                    <td class="tbody__view-count">34</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="4">전체 공지사항 갯수</td>
+                    <td colspan="2">5개</td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </section>
+
+</body>
+</html>
