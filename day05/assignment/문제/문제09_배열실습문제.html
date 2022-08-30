@@ -25,10 +25,40 @@
 	<button onclick="print2Test();"> 처리 및 출력 </button>  
 	
 	<script>
+		let stringLa4 = document.getElementById("stringla4");
+		let arr = stringLa4.textContent.split(' ');
+
 		function print2Test(){
-			
-		
+			let addText = document.getElementById("add").value;
+			let removeText = document.getElementById("remove").value;
+			let resultBox = document.getElementById("print4");
+			resultBox.textContent = '';
+
+			if (removeText !== '') {
+				remove();
+			}
+
+			if (addText !== '') {
+				add();
+			}
+
+			function add() {
+				arr.push(addText);
+			}
+
+			function remove() {
+				for (let i = 0; i < arr.length; i++) {
+					if (arr[i] === removeText) {
+						arr.splice(i, 1);
+					}
+				}
+			}
+
+			for (let i = 0; i < arr.length; i++) {
+				resultBox.textContent += arr[i] + ' ';
+			}
 		}
+
 	</script>
 	
 	

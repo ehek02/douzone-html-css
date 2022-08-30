@@ -34,7 +34,34 @@
 	<button onclick="printMember();">출력</button>
 	
 	<script>
-      
+		let member;
+		class Member {
+			constructor(name, age, address) {
+				this.name = name;
+				this.age = age;
+				this.address = address;
+			}
+		}
+
+		function insertMember() {
+			let name = prompt('이름 입력');
+			let age = prompt('나이 입력');
+			let address = prompt('주소 입력');
+
+			member = new Member(name, age, address);
+		}
+
+		function printMember() {
+			if (member === undefined) {
+				alert('입력은 먼저 해주세요.')
+				return;
+			}
+
+			document.getElementById('print').textContent = `
+			이름 : ${member.name}
+			나이 : ${member.age}세
+			주소 : ${member.address}`;
+		}
     </script>
 	
 </body>
