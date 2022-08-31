@@ -94,7 +94,11 @@
     </ul>
     <script>
         function deleteList() {
-            // 코드 작성
+            let ul = document.getElementById("list");
+
+            while (ul.hasChildNodes()) {
+                ul.removeChild(ul.firstChild);
+            }
         }
     </script>
 
@@ -109,8 +113,10 @@
     <script>
         function createList(){
             let content = prompt('추가할 목록을 입력하세요');
-
-            // 코드 작성
+            let ul = document.getElementById("list");
+            let li = document.createElement("li");
+            li.textContent = content;
+            ul.appendChild(li);
         }
     </script>
 
@@ -128,7 +134,9 @@
     </div>
     <script>
         function left(){
-            // 코드 작성
+            let area = document.getElementById("area");
+            let removeChild = area.removeChild(area.firstElementChild);
+            area.appendChild(removeChild);
         }
     </script>
 
