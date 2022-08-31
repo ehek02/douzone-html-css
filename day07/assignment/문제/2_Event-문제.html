@@ -57,11 +57,46 @@
     삭제하기 버튼을 누르면 마지막에 추가 된 div를 삭제한다.<br>
     div는 수직이 아닌 수평으로 추가되어야 하며 삭제 된 div 이후에 추가 될 때도 빨간색과 노란색 div가 번갈아가며 추가 되어야 한다.
   </p>
-  <button id="add">추가하기</button>
-  <button id="remove">삭제하기</button>
+  <button id="add" onclick="add()">추가하기</button>
+  <button id="remove" onclick="remove()">삭제하기</button>
   <div id="area1" class="area"></div>
   <script>
-    // 코드 작성
+    function add() {
+      let area1 = document.getElementById('area1');
+      let lastChild = area1.lastElementChild;
+
+      function makeChild(color) {
+        let child = document.createElement('div');
+        child.style.width = '100px';
+        child.style.height = '100px';
+        child.style.backgroundColor = color;
+        child.style.border = '1px solid black';
+        child.style.float = 'left';
+        area1.appendChild(child);
+      }
+
+      if (lastChild === null) {
+        makeChild('red');
+        return;
+      }
+
+      if (lastChild.style.backgroundColor === 'red') {
+        makeChild('yellow');
+      } else if (lastChild.style.backgroundColor === 'yellow') {
+        makeChild('red');
+      }
+    }
+
+    function remove() {
+      let area1 = document.getElementById('area1');
+
+      if (area1.firstChild === null) {
+        alert('삭제할 요소가 존재하지 않습니다.');
+        return;
+      }
+
+      area1.removeChild(area1.lastChild);
+    }
   </script>
 
   <h3>문제 2</h3>
@@ -75,13 +110,13 @@
       <tr>
         <td>예치금액</td>
         <td>
-          <input name="money" type="number" value="10000" required>
+          <input name="money" type="number" value="10000" required onchange="onChanged()">
         </td>
       </tr>
       <tr>
         <td>예치기간</td>
         <td>
-          <select name="months">
+          <select name="months" onchange="onChanged()">
             <option value="3">3 (최단 예치기간)</option>
             <option value="6">6 (반년)</option>
             <option value="12" selected>12 (1년)</option>
@@ -96,7 +131,7 @@
       <tr>
         <td>연이자율</td>
         <td>
-          <input name="interest" type="number" value="5" required>
+          <input name="interest" type="number" value="5" required onchange="onChanged()">
         </td>
       </tr>
     </table>
@@ -107,7 +142,17 @@
   만기지급금액 : <span id="money-after">10500</span>
 
   <script>
-    // 코드 작성
+    function onChanged() {
+      let money = Number(document.getElementsByName('money')[0].value);
+      let month = document.getElementsByName('months')[0];
+      let monthSelectedValue = month.options[month.selectedIndex].value;
+      let interest = document.getElementsByName('interest')[0].value;
+      let moneyBefore = document.getElementById('money-before');
+      let moneyAfter = document.getElementById('money-after');
+
+      moneyBefore.textContent = money.toString();
+      moneyAfter.textContent = (money + (money*(interest*0.01/12)*monthSelectedValue)).toString();
+    }
   </script>
 
   <h3>문제 3</h3>
@@ -118,10 +163,27 @@
     * 참고 : textarea 태그를 만들면 edit이라는 클래스명을 부여해준다. (CSS 설정이 있음) <br>
     node.replaceWith(노드나 문자열) 메소드를 사용해본다.
   </p>
-  <div id="view" class="view">여기를 클릭해서 내용을 입력하세요.</div>
+  <div id="view" class="view" onclick="onClickDiv()">여기를 클릭해서 내용을 입력하세요.</div>
 
   <script>
-    // 코드 작성
+    let div = document.getElementById('view');
+
+    function onClickDiv() {
+      let textArea = document.createElement('textarea');
+      textArea.id = 'textArea';
+      textArea.className = 'edit';
+      textArea.textContent = div.textContent;
+      textArea.addEventListener("keyup", enterKey);
+      div.replaceWith(textArea);
+    }
+
+    function enterKey(event) {
+      let textArea = document.getElementById('textArea');
+      if (event.code === 'Enter') {
+        div.textContent = textArea.value;
+        textArea.replaceWith(div);
+      }
+    }
   </script>
 
 </body>
