@@ -6,26 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3_Timer-BOM-답</title>
     <style>
-        .hour { color : red; }
-        .min { color : green; }
-        .sec { color : blue; }
+        .hour {
+            color: red;
+        }
+
+        .min {
+            color: green;
+        }
+
+        .sec {
+            color: blue;
+        }
     </style>
 </head>
 <body>
-    <h3>문제 1</h3>
-    <p>
-        시작 버튼을 누르면 hh:mm:ss의 공간에 현재 시간이 보여지고 멈춤 버튼을 누르면 다시 hh:mm:ss로
-        보여지게 하는 start, stop 함수를 작성한다.<br>
-        단, 한자리 숫자는 앞에 0을 붙여서 두자리로 표현한다.
-    </p>
-    <button onclick="start();">시작</button>
-    <button onclick="stop();">멈춤</button>
-    <div id="clock">
-        <span class="hour">hh</span>:<span class="min">mm</span>:<span class="sec">ss</span>
-    </div>
-    <script>
-        // 코드 작성
-    </script>
+<h3>문제 1</h3>
+<p>
+    시작 버튼을 누르면 hh:mm:ss의 공간에 현재 시간이 보여지고 멈춤 버튼을 누르면 다시 hh:mm:ss로
+    보여지게 하는 start, stop 함수를 작성한다.<br>
+    단, 한자리 숫자는 앞에 0을 붙여서 두자리로 표현한다.
+</p>
+<button onclick="start();">시작</button>
+<button onclick="stop();">멈춤</button>
+<div id="clock">
+    <span class="hour">hh</span>:<span class="min">mm</span>:<span class="sec">ss</span>
+</div>
+<script>
+    let hour = document.getElementsByClassName('hour')[0];
+    let min = document.getElementsByClassName('min')[0];
+    let sec = document.getElementsByClassName('sec')[0];
+
+    function start() {
+        let nowHour = new Date().getHours();
+        let nowMin = new Date().getMinutes();
+        let nowSec = new Date().getSeconds();
+
+        function lengthCheck(time) {
+            if (time.toString().length === 1) {
+                return '0' + time;
+            }
+            return time;
+        }
+
+        nowHour = lengthCheck(nowHour);
+        nowMin = lengthCheck(nowMin);
+        nowSec = lengthCheck(nowSec);
+
+        hour.textContent = nowHour;
+        min.textContent = nowMin;
+        sec.textContent = nowSec;
+    }
+
+    function stop() {
+        hour.textContent = 'hh';
+        min.textContent = 'mm';
+        sec.textContent = 'ss';
+    }
+</script>
 
 
 <h3>문제 2</h3>
@@ -38,7 +75,22 @@
 </p>
 <script>
     function sum() {
-        // 코드 작성
+        let intArr = [];
+
+        while (true) {
+            let check = /^[0-9]+$/;
+            let input = prompt('숫자 입력');
+
+            if (!check.test(input) || input === '') {
+                let sum = 0;
+                for (let i = 0; i < intArr.length; i++) {
+                    sum += intArr[i];
+                }
+                return sum;
+            }
+
+            intArr.push(Number(input));
+        }
     }
 
     console.log("합계 : " + sum());
@@ -58,7 +110,29 @@
 <button onclick="print();">값 출력</button>
 <button onclick="reset();">값 삭제</button>
 <script>
-    // 코드 작성
+    let inputArr = [];
+
+    function input(input) {
+        if (input === '') {
+            return;
+        }
+        inputArr.push(Number(input));
+    }
+
+    function print() {
+        if (inputArr.length === 0) {
+            alert('값이 먼저 입력 되어야 합니다.');
+            return;
+        }
+        for (let i = 0; i < inputArr.length; i++) {
+            alert(inputArr[i]);
+        }
+    }
+
+    function reset() {
+        inputArr = [];
+        alert('값이 모두 삭제되었습니다.');
+    }
 </script>
 
 </body>
